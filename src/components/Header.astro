@@ -1,0 +1,22 @@
+---
+//import { Image } from "astro:assets";
+import { AiOutlineGithub } from "react-icons/ai";
+import { BsCodeSlash } from "react-icons/bs";
+---
+
+<header class="w-full flex justify-between text-white">
+  <div>Logo</div>
+  <div class="flex gap-2">
+    <a><BsCodeSlash /> Works</a>
+    <a><AiOutlineGithub /> Source code</a>
+    <div>Theme toggler</div>
+  </div>
+</header>
+
+<style>
+  a {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+</style>
