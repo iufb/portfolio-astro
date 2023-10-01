@@ -5,17 +5,16 @@ import KeyboardModel from "./three/Keyboard";
 <section class="w-full my-20 flex lg:flex-row flex-col-reverse h-[500px]">
   <div class="max-w-[400px] flex flex-col gap-5 flex-1 font-lato">
     <h1 class="text-[64px]">
-      <span class="">Hello</span>, <br /> everyone ! 👋
+      <span class="">Hello</span>, <br /> everyone !
+      <span class="inline-block animate-hi"> 👋</span>
     </h1>
-    <p class="text-lg">
-      I'm Nadil. I have great interest in full-stack development, coding and
-      related things.
-    </p>
+     I'm Nadil. I have great interest in full-stack development, coding and
+    related things.
     <button class="px-2 py-1 bg-gray-300 rounded-md text-gray-950 max-w-[130px]"
       >Message me</button
     >
   </div>
   <div class="flex-1 h-full">
-    <KeyboardModel client:load />
+    <KeyboardModel client:visible />
   </div>
 </section>

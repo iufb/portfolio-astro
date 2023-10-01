@@ -1,7 +1,7 @@
-import { Center, Environment, OrbitControls, useGLTF } from "@react-three/drei";
+import { Center, OrbitControls, useGLTF } from "@react-three/drei";
 import { type GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { type Material, Group } from "three";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 type GLTFResult = GLTF & {
   nodes: {
@@ -265,6 +265,11 @@ export function Keyboard() {
 }
 
 const KeyboardModel = () => {
+  const [loading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+  if (loading) return <div>Loading</div>;
   return (
     <Canvas
       camera={{
@@ -273,15 +278,17 @@ const KeyboardModel = () => {
       }}
       shadows
     >
-      <ambientLight intensity={2.5} color={"#fff"} position={[0, 0, 5]} />
+      <ambientLight intensity={0.92} color={"#fff"} position={[0, 0, 5]} />
+      <ambientLight intensity={0.92} color={"#fff"} position={[0, 20, 5]} />
       <directionalLight
         color="white"
         castShadow
         intensity={2.5}
-        position={[0, -1, 10]}
+        position={[5, 0, 5]}
       />
 
       <Center>
+        {" "}
         <Keyboard />
       </Center>
       <OrbitControls minDistance={1} maxDistance={200} />

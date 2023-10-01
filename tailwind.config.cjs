@@ -14,6 +14,18 @@ module.exports = {
       fontFamily: {
         lato: ["'Lato'", "sans-serif"],
       },
+      animation: {
+        hi: "rotate 1.5s linear infinite ",
+      },
+      keyframes: {
+        rotate: {
+          "0%": { transform: "rotateZ(0deg)" },
+          "25%": { transform: "rotateZ(15deg)" },
+          "50%": { transform: "rotateZ(45deg)" },
+          "75%": { transform: "rotateZ(15deg)" },
+          "100%": { transform: "rotateZ(0deg)" },
+        },
+      },
     },
   },
   plugins: [],
