@@ -1,20 +1,21 @@
 ---
 //import { Image } from "astro:assets";
 import { AiOutlineGithub } from "react-icons/ai";
+import { ThemeToggle } from "./ThemeToggle";
 import { BsCodeSlash } from "react-icons/bs";
 const currentPath = new URL(Astro.request.url).pathname.slice(1); //get current path
 ---
 
-<header class="w-full flex justify-between text-white">
+<header class="w-full flex justify-between text-lg">
   <a href="/">Logo</a>
   <div class="flex gap-2">
     <a
       href="/works"
-      class=`${currentPath == 'works' ? 'font-bold underline' : 'font-normal' }`
+      class=`${currentPath == 'works' ? 'font-bold underline text-accent' : 'font-normal' }`
       ><BsCodeSlash /> Works</a
     >
     <a href=""><AiOutlineGithub /> Source code</a>
-    <div>Theme toggler</div>
+    <ThemeToggle client:visible />
   </div>
 </header>
 

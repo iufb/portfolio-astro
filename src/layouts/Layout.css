@@ -6,3 +6,20 @@ body {
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word;
 }
+@tailwind base;
+@layer base {
+  :root {
+    --text: #05051a;
+    --background: #eeeefc;
+    --primary: #e46cac;
+    --secondary: #f5f3c7;
+    --accent: #25cb72;
+  }
+  .dark {
+    --text: #e5e5fa;
+    --background: #030311;
+    --primary: #931b5b;
+    --secondary: #38360a;
+    --accent: #34da82;
+  }
+}
