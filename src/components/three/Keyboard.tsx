@@ -3,6 +3,7 @@ import { type GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { type Material, Group } from "three";
 import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { Loader } from "../Loader/Loader";
 type GLTFResult = GLTF & {
   nodes: {
     Cube044: THREE.Mesh;
@@ -269,7 +270,7 @@ const KeyboardModel = () => {
   useEffect(() => {
     setLoading(false);
   }, []);
-  if (loading) return <div>Loading</div>;
+  if (loading) return <Loader size="md" />;
   return (
     <Canvas
       camera={{
