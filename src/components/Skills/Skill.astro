@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+  name: string;
+  icon: string;
+}
+const { name, icon } = Astro.props;
+---
+
+<div
+  class="text-md flex flex-col items-center border shadow gap-2 p-4 rounded-md hover:scale-105 hover:transition hover:delay-75 hover:ease-in-out"
+>
+  <Image src={icon} alt={`${name}`} width={48} height={48} format="webp" />
+  <span class="font-semibold">
+    {name}
+  </span>
+</div>

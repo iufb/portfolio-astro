@@ -46,7 +46,7 @@ export function Keyboard() {
   const ref = useRef<Group>(null);
   useFrame(() => {
     if (ref.current) {
-      ref.current.rotation.y += 0.005;
+      ref.current.rotation.y -= 0.005;
     }
   });
   return (
@@ -279,7 +279,7 @@ const KeyboardModel = () => {
       }}
       shadows
     >
-      <ambientLight intensity={0.92} color={"#fff"} position={[0, 0, 5]} />
+      <ambientLight intensity={0.92} color={"#fff"} position={[0, 0, 10]} />
       <ambientLight intensity={0.92} color={"#fff"} position={[0, 20, 5]} />
       <directionalLight
         color="white"
@@ -292,7 +292,7 @@ const KeyboardModel = () => {
         {" "}
         <Keyboard />
       </Center>
-      <OrbitControls minDistance={1} maxDistance={200} />
+      <OrbitControls enableZoom={false} />
     </Canvas>
   );
 };

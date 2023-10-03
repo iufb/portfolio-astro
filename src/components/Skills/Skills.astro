@@ -1,0 +1,28 @@
+---
+import Skill from "./Skill.astro";
+import ReactLogo from "./images/react.png";
+import JavascriptLogo from "./images/javascript.png";
+import TypescriptLogo from "./images/typescript.svg";
+import NestjsLogo from "./images/nestjs.svg";
+import NextjsLogo from "./images/nextjs.svg";
+import MongodbLogo from "./images/mongodb.png";
+type skill = {
+  icon: string;
+  name: string;
+};
+const skills: skill[] = [
+  { icon: ReactLogo, name: "React" },
+  { icon: JavascriptLogo, name: "Javascript" },
+  { icon: TypescriptLogo, name: "Typescript" },
+  { icon: NestjsLogo, name: "Nestjs" },
+  { icon: NextjsLogo, name: "Nextjs" },
+  { icon: MongodbLogo, name: "Mongodb" },
+];
+---
+
+<section>
+  <h2 class="title">Skills</h2>
+  <div class="grid grid-cols-3 grid-rows-2 gap-2">
+    {skills.map(({ icon, name }) => <Skill name={name} icon={icon} />)}
+  </div>
+</section>
