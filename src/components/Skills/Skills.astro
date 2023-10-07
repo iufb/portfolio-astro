@@ -6,8 +6,9 @@ import TypescriptLogo from "./images/typescript.svg";
 import NestjsLogo from "./images/nestjs.svg";
 import NextjsLogo from "./images/nextjs.svg";
 import MongodbLogo from "./images/mongodb.png";
+import type { ImageMetadata } from "astro";
 type skill = {
-  icon: string;
+  icon: ImageMetadata;
   name: string;
 };
 const skills: skill[] = [
@@ -20,7 +21,7 @@ const skills: skill[] = [
 ];
 ---
 
-<section>
+<section id="skills">
   <h2 class="title">Skills</h2>
   <div class="grid grid-cols-3 grid-rows-2 gap-2">
     {skills.map(({ icon, name }) => <Skill name={name} icon={icon} />)}

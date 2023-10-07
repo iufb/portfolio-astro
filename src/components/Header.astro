@@ -3,17 +3,14 @@
 import { AiOutlineGithub } from "react-icons/ai";
 import { ThemeToggle } from "./ThemeToggle";
 import { BsCodeSlash } from "react-icons/bs";
-const currentPath = new URL(Astro.request.url).pathname.slice(1); //get current path
+import { GiSkills } from "react-icons/gi";
 ---
 
 <header class="w-full flex justify-between text-lg">
   <a href="/">Logo</a>
-  <div class="flex gap-2">
-    <a
-      href="/works"
-      class=`${currentPath == 'works' ? 'font-bold underline text-accent' : 'font-normal' }`
-      ><BsCodeSlash />Works</a
-    >
+  <div class="flex gap-2 font-normal">
+    <a href="#skills"><GiSkills />Skills</a>
+    <a href="#works"><BsCodeSlash />Works</a>
     <a href=""><AiOutlineGithub />Source</a>
     <ThemeToggle client:visible />
   </div>
