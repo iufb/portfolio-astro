@@ -1,0 +1,13 @@
+---
+interface Props {
+  size: string;
+  position: string;
+  gradientTo: string;
+}
+const { size, position, gradientTo } = Astro.props;
+---
+
+<div
+  class={`absolute rounded-full -z-10 from-accent to-primary ${gradientTo} ${size} ${position} `}
+>
+</div>

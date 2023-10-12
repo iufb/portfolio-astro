@@ -1,22 +1,18 @@
 ---
 title: Astronomy picture of a day
-image: /logo.png
+image: /src/content/images/apofday.png
 ---
 
-# Astronomy Picture of the Day
+### Project Overview
 
-This is the content of your Astro Markdown page.
+This project showcases the Astronomy Picture of the Day, providing a description for each image fetched from NASA's official API. Key features include API integration, a theme toggle, and a responsive CSS grid layout.
 
-## Technologies Used
+#### Technologies Used
 
-List the technologies, programming languages, and tools you used to build this project.
+- React
+- TypeScript
+- Tailwind CSS
+- Zustand (state management for the API data)
 
-- Technology 1
-- Technology 2
-- Technology 3
-
-You can add text, images, links, and more using standard Markdown syntax.
-
-![Image Alt Text](../images/apofday.png)
-
-[Github repo](https://github.com/iufb/Astronomy-Picture-of-the-Day)
+[Explore the Source Code](https://github.com/iufb/Astronomy-Picture-of-the-Day)
+[View the Deployed Site](https://astronomy-picture-of-the-day-iufb.vercel.app/home)

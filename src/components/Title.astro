@@ -1,0 +1,10 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<h2 class="title">
+  {title.split("").map((letter) => <span class="textHover">{letter}</span>)}
+</h2>

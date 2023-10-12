@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+export const getStaticPaths = async () => {
+  const works = await getCollection("works");
+  const paths = works.map((work) => {
+    return {
+      params: {
+        slug: work.slug,
+      },
+      props: {
+        work,
+      },
+    };
+  });
+  return paths;
+};
+interface Props {
+  work: CollectionEntry<"works">;
+}
+const { work } = Astro.props;
+const { Content } = await work.render();
+---
+
+<Layout title={work.data.title}>
+  <h2
+    class="text-center text-primary text-3xl"
+    transition:name={`title ${work.data.title}`}
+  >
+    {work.data.title}
+  </h2>
+  <Image
+    src={work.data.image}
+    alt={work.data.title}
+    width={900}
+    height={600}
+    transition:name={`image ${work.data.title}`}
+  />
+  <div class="prose prose-2xl overflow-visible relative mb-20">
+    <Content />
+  </div>
+</Layout>

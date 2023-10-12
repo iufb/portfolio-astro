@@ -277,6 +277,7 @@ const KeyboardModel = () => {
         position: [0, -1, 10],
         fov: 23.2,
       }}
+      className="z-30"
       shadows
     >
       <ambientLight intensity={0.92} color={"#fff"} position={[0, 0, 10]} />

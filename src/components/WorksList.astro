@@ -1,10 +1,20 @@
 ---
-import { Carousel } from "./Carousel";
+import { getCollection } from "astro:content";
+import { Carousel as TsxCarousel } from "./Carousel";
+import Carousel from "./Carousel.astro";
+import Title from "./Title.astro";
+const works = await getCollection("works");
+const worksData: { title: string; image: string; slug: string }[] = works.map(
+  (work) => {
+    return { ...work.data, slug: work.slug };
+  },
+);
 ---
 
 <section id="works">
-  <h1 class="title">Works</h1>
+  <Title title="Works" />
   <div class="w-full flex justify-center">
-    <Carousel client:visible />
+    <!-- <TsxCarousel works={worksData} client:visible /> -->
+    <Carousel works={worksData} />
   </div>
 </section>

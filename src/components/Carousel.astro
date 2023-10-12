@@ -1,0 +1,114 @@
+---
+import { Image } from "astro:assets";
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+export interface Work {
+  title: string;
+  image: string;
+  slug: string;
+}
+
+interface Props {
+  works: Work[];
+}
+const { works } = Astro.props;
+---
+
+<carousel-element
+  data-works={JSON.stringify(works)}
+  class="w-fit h-fit relative group"
+>
+  {
+    works.map((work, index) => (
+      <div
+        class={`relative   wrapper index ${index}  ${
+          index == 0 ? "block " : "hidden"
+        }`}
+      >
+        <div class={` w-full h-full  `}>
+          <a href={`works/${work.slug}`}>
+            <h2
+              class="text-center text-2xl mb-2 text-primary"
+              transition:name={`title ${work.title}`}
+            >
+              {work.title}
+            </h2>
+          </a>
+          <Image
+            class="workImage rounded-2xl"
+            src={work.image}
+            alt="11"
+            width={900}
+            height={600}
+            transition:name={`image ${work.title}`}
+          />
+        </div>
+      </div>
+    ))
+  }
+  <div
+    class="z-40 absolute hidden text-gray-500 group-hover:flex top-[49%] justify-between w-full"
+  >
+    <button type="button" title="back" class="back">
+      <BsChevronCompactLeft size={30} />
+    </button>
+    <button type="button" title="next" class="next">
+      <BsChevronCompactRight size={30} />
+    </button>
+  </div>
+</carousel-element>
+<script>
+  import type { Work } from "./Carousel.astro";
+  class Carousel extends HTMLElement {
+    currentIndex: number = 0;
+    works: Work[];
+    constructor() {
+      super();
+      this.works = JSON.parse(this.dataset.works ? this.dataset.works : "");
+      const max = this.works.length;
+      const nextButton = this.querySelector("button.next");
+      const backButton = this.querySelector("button.back");
+
+      if (nextButton && backButton) {
+        nextButton.addEventListener("click", () => {
+          this.updateDisplay("next", max);
+        });
+        backButton.addEventListener("click", () => {
+          this.updateDisplay("back", max);
+        });
+      }
+    }
+    next(max: number) {
+      this.currentIndex = (this.currentIndex + 1) % max;
+    }
+    back(max: number) {
+      this.currentIndex = (this.currentIndex - 1 + max) % max;
+    }
+    updateDisplay(type: "next" | "back", max: number) {
+      type == "next" ? this.next(max) : this.back(max);
+      const elements = this.querySelectorAll(".wrapper");
+      elements.forEach((element, index) => {
+        const img = element.querySelector("img");
+        if (img) {
+          img.style.opacity = "0";
+          setTimeout(() => {
+            img.style.opacity = "1";
+          }, 150);
+        }
+
+        if (index === this.currentIndex) {
+          element.classList.remove("hidden");
+          element.classList.add("block");
+        } else {
+          element.classList.add("hidden");
+          element.classList.remove("block");
+        }
+      });
+    }
+  }
+  customElements.define("carousel-element", Carousel);
+</script>
+<style>
+  .workImage {
+    transition: opacity 0.5s;
+  }
+</style>

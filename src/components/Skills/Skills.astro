@@ -1,5 +1,6 @@
 ---
 import Skill from "./Skill.astro";
+import Title from ".././Title.astro";
 import ReactLogo from "./images/react.png";
 import JavascriptLogo from "./images/javascript.png";
 import TypescriptLogo from "./images/typescript.svg";
@@ -22,7 +23,7 @@ const skills: skill[] = [
 ---
 
 <section id="skills">
-  <h2 class="title">Skills</h2>
+  <Title title="Skills" />
   <div class="grid grid-cols-3 grid-rows-2 gap-2">
     {skills.map(({ icon, name }) => <Skill name={name} icon={icon} />)}
   </div>
