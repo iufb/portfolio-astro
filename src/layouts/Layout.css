@@ -16,6 +16,9 @@ html {
 @tailwind base;
 @tailwind components;
 @layer components {
+  .center {
+    @apply flex items-center justify-center;
+  }
   .btn {
     @apply bg-primary text-lg  text-text hover:-translate-y-2 hover:shadow-primary hover:shadow-lg  px-3 py-4  rounded-md transition-all ease-out  delay-75;
   }
@@ -26,7 +29,10 @@ html {
     @apply text-text hover:text-gray-500;
   }
   .title {
-    @apply text-4xl font-bold cursor-pointer font-lato text-accent mb-2 relative after:absolute after:sm:w-[400px] after:w-[200px] after:bottom-3 after:ml-2 after:h-[1px] after:bg-accent;
+    @apply z-40 text-2xl lg:text-4xl font-bold cursor-pointer  font-lato text-accent mb-2 relative after:absolute after:sm:w-[400px] after:w-[200px] after:bottom-3 after:ml-2 after:h-[1px] after:bg-accent;
+  }
+  .labelText {
+    @apply font-bold text-lg cursor-pointer text-white;
   }
   .textHover {
     transition:

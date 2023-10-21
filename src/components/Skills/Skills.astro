@@ -1,6 +1,7 @@
 ---
 import Skill from "./Skill.astro";
-import Title from ".././Title.astro";
+import SectionContainer from "../SectionContainer.astro";
+import { Sparkle } from "../Sparkle";
 import ReactLogo from "./images/react.png";
 import JavascriptLogo from "./images/javascript.png";
 import TypescriptLogo from "./images/typescript.svg";
@@ -22,9 +23,14 @@ const skills: skill[] = [
 ];
 ---
 
-<section id="skills">
-  <Title title="Skills" />
-  <div class="grid grid-cols-3 grid-rows-2 gap-2">
+<SectionContainer name="skills">
+  <div
+    class="grid grid-cols-3 relative justify-self-center z-40 grid-rows-2 gap-2 w-full max-w-[600px]"
+    id="skills"
+  >
     {skills.map(({ icon, name }) => <Skill name={name} icon={icon} />)}
+
+    <Sparkle position="left-2 bottom-0" size="" client:only />
+    <Sparkle position=" right-2" size="" client:only />
   </div>
-</section>
+</SectionContainer>

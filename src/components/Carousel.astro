@@ -15,30 +15,35 @@ const { works } = Astro.props;
 
 <carousel-element
   data-works={JSON.stringify(works)}
-  class="w-fit h-fit relative group"
+  class:list="w-fit h-[300px] sm:h-[340px] md:h-[450px] lg:h-[540px] xl:h-[560px] overflow-hidden  relative group "
 >
   {
     works.map((work, index) => (
       <div
-        class={`relative   wrapper index ${index}  ${
+        class={`relative    wrapper index ${index}  ${
           index == 0 ? "block " : "hidden"
         }`}
       >
-        <div class={` w-full h-full  `}>
-          <a href={`works/${work.slug}`}>
-            <h2
-              class="text-center text-2xl mb-2 text-primary"
-              transition:name={`title ${work.title}`}
-            >
-              {work.title}
-            </h2>
+        <div class={` w-full h-full grid  `}>
+          <a
+            href={`works/${work.slug}`}
+            class="justify-self-end hover:text-primary px-2 py-1 border-text border text-sm lg:text-md font-bold font-lato"
+          >
+            Show more
           </a>
+          <h2
+            class="text-center text-2xl mb-6 text-primary "
+            transition:name={`title ${work.title}`}
+          >
+            {work.title}
+          </h2>
+
           <Image
-            class="workImage rounded-2xl"
+            class="workImage rounded-2xl justify-self-center "
             src={work.image}
-            alt="11"
-            width={900}
-            height={600}
+            width={800}
+            height={450}
+            alt={work.title}
             transition:name={`image ${work.title}`}
           />
         </div>
@@ -46,7 +51,7 @@ const { works } = Astro.props;
     ))
   }
   <div
-    class="z-40 absolute hidden text-gray-500 group-hover:flex top-[49%] justify-between w-full"
+    class="z-40 absolute hidden text-gray-500 group-hover:flex top-[50%] translate-y-[50%] justify-between w-full"
   >
     <button type="button" title="back" class="back">
       <BsChevronCompactLeft size={30} />
@@ -90,6 +95,7 @@ const { works } = Astro.props;
         const img = element.querySelector("img");
         if (img) {
           img.style.opacity = "0";
+
           setTimeout(() => {
             img.style.opacity = "1";
           }, 150);

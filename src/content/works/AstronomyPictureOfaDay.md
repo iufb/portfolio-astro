@@ -15,4 +15,5 @@ This project showcases the Astronomy Picture of the Day, providing a description
 - Zustand (state management for the API data)
 
 [Explore the Source Code](https://github.com/iufb/Astronomy-Picture-of-the-Day)
+
 [View the Deployed Site](https://astronomy-picture-of-the-day-iufb.vercel.app/home)

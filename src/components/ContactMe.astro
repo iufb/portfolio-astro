@@ -1,0 +1,36 @@
+---
+import { ContactMeForm } from "./ContactMeForm";
+const { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } =
+  import.meta.env;
+---
+
+<section class="w-full h-[80vh] flex lg:flex-row flex-col items-center gap-3">
+  <div
+    class="flex-1 flex flex-col gap-5 bgImage p-5 h-full w-full items-center justify-center rounded-sm font-sans"
+  >
+    <h2 class="text-accent text-4xl font-bold text-center">
+      Let's get in touch!
+    </h2>
+    <p class="text-primary text-lg w-full max-w-[400px]">
+      Ready to start a <strong>conversation</strong>? Don't hesitate to reach
+      out. Whether you want to collaborate on a <strong>project</strong>, have a
+
+
+      <strong>question</strong>, or just want to <strong>connect</strong>, I'm
+      here for <strong>you</strong>.
+    </p>
+  </div>
+
+  <ContactMeForm
+    serviceId={EMAILJS_SERVICE_ID}
+    templateId={EMAILJS_TEMPLATE_ID}
+    publicKey={EMAILJS_PUBLIC_KEY}
+    client:only
+  />
+</section>
+<style>
+  .bgImage {
+    background-image: url("/contactBg.webp");
+    background-size: cover;
+  }
+</style>

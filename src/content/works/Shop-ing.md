@@ -3,20 +3,20 @@ title: Shop-ing
 image: /src/content/images/shoping3.png
 ---
 
-# Astronomy Picture of the Day
+### Project Overview
 
-This project is shop-like web application that uses python script as back-end.In this case I tried use nextjs framework with nextjs api calles to display data. Using framer-motion library to make great appear animations , change cursor animations.
+This project is a web application designed to resemble a shop.
+It utilizes a **Python script** as its backend. For the frontend, I opted to use the Next.js framework and Next.js API calls to fetch and display data. To enhance the user experience, I incorporated the Framer Motion library, which provides seamless appearance animations and interactive cursor animations.
+![Image Alt Text](../images/shoping2.png)
+![Image Alt Text](../images/shoping1.png)
 
-## Technologies Used
+#### Technologies Used
 
-List the technologies, programming languages, and tools you used to build this project.
+- Nextjs
+- Typescript
+- Python bs4 library for webscrapping
+- Framer-motion
+- TailwindCSS
+- Swiperjs
 
-- Technology 1
-- Technology 2
-- Technology 3
-
-You can add text, images, links, and more using standard Markdown syntax.
-
-![Image Alt Text](../images/apofday.png)
-
-[Github repo](https://github.com/iufb/Astronomy-Picture-of-the-Day)
+[Explore the Source Code](https://github.com/iufb/shop.ing)

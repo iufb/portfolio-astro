@@ -6,5 +6,9 @@ const { title } = Astro.props;
 ---
 
 <h2 class="title">
-  {title.split("").map((letter) => <span class="textHover">{letter}</span>)}
+  {
+    title
+      .split("")
+      .map((letter) => <span class={`textHover capitalize `}>{letter}</span>)
+  }
 </h2>

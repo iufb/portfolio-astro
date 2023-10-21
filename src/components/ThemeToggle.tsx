@@ -1,17 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 export const ThemeToggle = () => {
   const [darkMode, setMode] = useState<boolean>(false);
-  const toggle = () => {
-    setMode((prev) => !prev);
+  const [theme, setTheme] = useState(() => {
+    if (import.meta.env.SSR) {
+      return undefined;
+    }
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  });
+  const toggle = (theme: string) => {
+    setMode(theme == "dark");
     const root = document.documentElement;
-    if (root.classList.contains("dark")) {
+    if (theme == "dark") {
       root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     } else {
       root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     }
   };
+  useEffect(() => {
+    toggle(theme ? theme : "light");
+  }, [darkMode]);
   const transition = {
     duration: 0.5,
     ease: "easeInOut",
@@ -64,7 +81,7 @@ export const ThemeToggle = () => {
       <input
         type="checkbox"
         checked={darkMode}
-        onChange={toggle}
+        onChange={() => setMode((prev) => !prev)}
         className="hidden "
         id="theme"
       />
