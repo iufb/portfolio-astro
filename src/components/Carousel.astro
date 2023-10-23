@@ -26,6 +26,7 @@ const { works } = Astro.props;
       >
         <div class={` w-full h-full grid  `}>
           <a
+            transition:name="link"
             href={`works/${work.slug}`}
             class="justify-self-end hover:text-primary px-2 py-1 border-text border text-sm lg:text-md font-bold font-lato"
           >

@@ -5,11 +5,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        text: "var(--text)",
-        background: "var(--background)",
-        primary: "var(--primary)",
+        text: "var(--color-text)",
+        background: "var(--color-background)",
+        primary: "var(--color-primary)",
         secondary: "var(--secondary)",
-        accent: "var(--accent)",
+        accent: "var(--color-accent)",
       },
       fontFamily: {
         lato: ["'Lato'", "sans-serif"],

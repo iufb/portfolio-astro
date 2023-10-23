@@ -1,18 +1,21 @@
 ---
 //import { Image } from "astro:assets";
 import { AiOutlineGithub } from "react-icons/ai";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "./ThemeToggle.tsx";
 import { BsCodeSlash } from "react-icons/bs";
 import { GiSkills } from "react-icons/gi";
 ---
 
-<header class="w-full flex justify-between text-lg">
+<header
+  class="w-full flex fixed top-10 left-0 py-2 backdrop-blur-md lg:px-32 md:px-20 sm:px-10 px-2 z-50 justify-between text-lg min-h-[54px]"
+  transition:persist
+>
   <a href="/">Logo</a>
   <div class="flex gap-2 font-normal">
     <a href="/#skills" class="navlink"><GiSkills />Skills</a>
     <a href="/#works" class="navlink"><BsCodeSlash />Works</a>
     <a href="" class="navlink"><AiOutlineGithub />Source</a>
-    <ThemeToggle client:visible />
+    <ThemeToggle client:idle />
   </div>
 </header>
 
@@ -23,3 +26,16 @@ import { GiSkills } from "react-icons/gi";
     align-items: center;
   }
 </style>
+<script>
+  const links = document.querySelectorAll("a.navlink");
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = link.getAttribute("href")?.slice(1);
+      if (!id) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>

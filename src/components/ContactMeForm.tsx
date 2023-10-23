@@ -47,7 +47,7 @@ export const ContactMeForm: FC<ContactMeFormProps> = ({
       <input
         id="name"
         name="from_name"
-        className="px-2 py-1 rounded-sm focus:outline-accent"
+        className="px-2 py-1 rounded-sm focus:outline-accent text-gray-900"
         placeholder="Type your name..."
         required
       />
@@ -58,7 +58,7 @@ export const ContactMeForm: FC<ContactMeFormProps> = ({
         id="email"
         name="email"
         required
-        className="px-2 py-1 rounded-sm focus:outline-accent"
+        className="px-2 py-1 rounded-sm focus:outline-accent text-gray-900"
         placeholder="Type your email..."
       />
       <label htmlFor="message" className="labelText">
@@ -68,7 +68,7 @@ export const ContactMeForm: FC<ContactMeFormProps> = ({
         required
         id="message"
         name="message"
-        className="px-2 py-1 focus:outline-accent rounded-sm"
+        className="px-2 py-1 focus:outline-accent rounded-sm text-gray-900"
         placeholder="Type your message..."
       ></textarea>
       <div className="text-white font-bold">

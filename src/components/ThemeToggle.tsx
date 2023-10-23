@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 export const ThemeToggle = () => {
-  const [darkMode, setMode] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [theme, setTheme] = useState(() => {
     if (import.meta.env.SSR) {
       return undefined;
@@ -15,20 +15,23 @@ export const ThemeToggle = () => {
     }
     return "light";
   });
-  const toggle = (theme: string) => {
-    setMode(theme == "dark");
-    const root = document.documentElement;
-    if (theme == "dark") {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
+
+  const toggleTheme = () => {
+    const t = theme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", t);
+    setTheme(t);
   };
   useEffect(() => {
-    toggle(theme ? theme : "light");
-  }, [darkMode]);
+    setIsMounted(true);
+  }, []);
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "light") {
+      root.setAttribute("data-theme", "light");
+    } else {
+      root.setAttribute("data-theme", "dark");
+    }
+  }, [theme]);
   const transition = {
     duration: 0.5,
     ease: "easeInOut",
@@ -49,12 +52,12 @@ export const ThemeToggle = () => {
     },
   };
 
-  return (
+  return isMounted ? (
     <label
       htmlFor="theme"
       className={`text-2xl flex items-center ml-4 border p-[6px] border-text rounded-full  cursor-pointer `}
     >
-      {darkMode && (
+      {theme == "dark" && (
         <motion.div
           variants={variants}
           initial="hidden"
@@ -66,7 +69,7 @@ export const ThemeToggle = () => {
           </AnimatePresence>
         </motion.div>
       )}
-      {!darkMode && (
+      {theme == "light" && (
         <motion.div
           variants={variants}
           initial="hidden"
@@ -79,12 +82,15 @@ export const ThemeToggle = () => {
         </motion.div>
       )}
       <input
+        data-theme-toggle
         type="checkbox"
-        checked={darkMode}
-        onChange={() => setMode((prev) => !prev)}
+        checked={theme == "dark"}
+        onChange={toggleTheme}
         className="hidden "
         id="theme"
       />
     </label>
+  ) : (
+    <div />
   );
 };
