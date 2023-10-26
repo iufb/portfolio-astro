@@ -1,7 +1,6 @@
 ---
 import KeyboardModel from "./three/Keyboard";
 import Circle from "./Circle.astro";
-import { InViewContainer } from "./InViewContainer";
 import { circles } from "../constants/constants";
 ---
 
@@ -22,7 +21,7 @@ import { circles } from "../constants/constants";
   </div>
 
   <div class="flex-1 flex justify-center items-center max-h-[600px] mt-33">
-    <!-- <KeyboardModel client:visible /> -->
+    <KeyboardModel client:visible />
   </div>
   {
     circles.map(({ size, position, gradientTo }) => (
