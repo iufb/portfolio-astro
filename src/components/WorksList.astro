@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import SectionContainer from "./SectionContainer.astro";
 import Carousel from "./Carousel.astro";
-import { InViewContainer } from "./InViewContainer";
+import { InViewContainer } from "./motion/InViewContainer";
 const works = await getCollection("works");
 const worksData: { title: string; image: string; slug: string }[] = works.map(
   (work) => {

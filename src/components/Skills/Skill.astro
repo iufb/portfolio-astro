@@ -9,7 +9,7 @@ const { name, icon } = Astro.props;
 ---
 
 <div
-  class="text-md flex flex-col bg-background items-center border shadow gap-2 p-4 rounded-md hover:scale-105 hover:transition hover:delay-75 hover:ease-in-out"
+  class="text-md flex flex-col bg-background z-50 items-center border shadow gap-2 p-4 rounded-md hover:scale-105 hover:transition hover:delay-75 hover:ease-in-out"
 >
   <Image src={icon} alt={`${name}`} width={48} height={48} format="webp" />
   <span class="font-semibold">

@@ -15,45 +15,9 @@ const { works } = Astro.props;
 
 <carousel-element
   data-works={JSON.stringify(works)}
-  class:list="w-fit h-[300px] sm:h-[340px] md:h-[450px] lg:h-[540px] xl:h-[560px] overflow-hidden  relative group "
+  class:list="w-full h-full grid  gap-3"
 >
-  {
-    works.map((work, index) => (
-      <div
-        class={`relative    wrapper index ${index}  ${
-          index == 0 ? "block " : "hidden"
-        }`}
-      >
-        <div class={` w-full h-full grid  `}>
-          <a
-            transition:name="link"
-            href={`works/${work.slug}`}
-            class="justify-self-end hover:text-primary px-2 py-1 border-text border text-sm lg:text-md font-bold font-lato"
-          >
-            Show more
-          </a>
-          <h2
-            class="text-center text-2xl mb-6 text-primary "
-            transition:name={`title ${work.title}`}
-          >
-            {work.title}
-          </h2>
-
-          <Image
-            class="workImage rounded-2xl justify-self-center "
-            src={work.image}
-            width={800}
-            height={450}
-            alt={work.title}
-            transition:name={`image ${work.title}`}
-          />
-        </div>
-      </div>
-    ))
-  }
-  <div
-    class="z-40 absolute hidden text-gray-500 group-hover:flex top-[50%] translate-y-[50%] justify-between w-full"
-  >
+  <div class="z-40 text-gray-500 flex gap-10 w-fit justify-self-center">
     <button type="button" title="back" class="back">
       <BsChevronCompactLeft size={30} />
     </button>
@@ -61,7 +25,40 @@ const { works } = Astro.props;
       <BsChevronCompactRight size={30} />
     </button>
   </div>
+
+  {
+    works.map((work, index) => (
+      <div
+        class={` grid    wrapper ${index == 0 ? "block" : "hidden"}   `}
+        data-index={index}
+      >
+        <a
+          transition:name={`link ${work.title}`}
+          href={`works/${work.slug}`}
+          class="justify-self-end hover:text-primary px-2 py-1 border-text border text-sm lg:text-md font-bold font-lato"
+        >
+          Show more
+        </a>
+        <h2
+          class="text-center text-2xl mb-6 text-primary "
+          transition:name={`title ${work.title}`}
+        >
+          {work.title}
+        </h2>
+
+        <Image
+          class="workImage rounded-2xl justify-self-center "
+          src={work.image}
+          width={720}
+          height={405}
+          alt={work.title}
+          transition:name={`image ${work.title}`}
+        />
+      </div>
+    ))
+  }
 </carousel-element>
+
 <script>
   import type { Work } from "./Carousel.astro";
   class Carousel extends HTMLElement {
@@ -73,7 +70,6 @@ const { works } = Astro.props;
       const max = this.works.length;
       const nextButton = this.querySelector("button.next");
       const backButton = this.querySelector("button.back");
-
       if (nextButton && backButton) {
         nextButton.addEventListener("click", () => {
           this.updateDisplay("next", max);
@@ -92,6 +88,7 @@ const { works } = Astro.props;
     updateDisplay(type: "next" | "back", max: number) {
       type == "next" ? this.next(max) : this.back(max);
       const elements = this.querySelectorAll(".wrapper");
+
       elements.forEach((element, index) => {
         const img = element.querySelector("img");
         if (img) {

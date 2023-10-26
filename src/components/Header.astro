@@ -1,23 +1,20 @@
 ---
-//import { Image } from "astro:assets";
 import { AiOutlineGithub } from "react-icons/ai";
 import { ThemeToggle } from "./ThemeToggle.tsx";
 import { BsCodeSlash } from "react-icons/bs";
 import { GiSkills } from "react-icons/gi";
+import { MotionHeader } from "./motion/MotionHeader";
 ---
 
-<header
-  class="w-full flex fixed top-10 left-0 py-2 backdrop-blur-md lg:px-32 md:px-20 sm:px-10 px-2 z-50 justify-between text-lg min-h-[54px]"
-  transition:persist
->
+<MotionHeader client:visible>
   <a href="/">Logo</a>
   <div class="flex gap-2 font-normal">
     <a href="/#skills" class="navlink"><GiSkills />Skills</a>
     <a href="/#works" class="navlink"><BsCodeSlash />Works</a>
     <a href="" class="navlink"><AiOutlineGithub />Source</a>
-    <ThemeToggle client:idle />
+    <ThemeToggle client:load />
   </div>
-</header>
+</MotionHeader>
 
 <style>
   a {

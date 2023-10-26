@@ -1,13 +1,6 @@
-import { useRef, type PropsWithChildren, useEffect } from "react";
-import {
-  motion,
-  useAnimate,
-  useInView,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { useRef, type PropsWithChildren } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 export const InViewContainer = ({ children }: PropsWithChildren) => {
-  const [scope, animate] = useAnimate();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -19,17 +12,6 @@ export const InViewContainer = ({ children }: PropsWithChildren) => {
     [0.1, 0.4, 0.7, 1],
     ["0%", "20%", "-10%", "-10%"],
   );
-  const variants = {
-    initial: {
-      x: "-20px",
-      opacity: 0,
-    },
-    animate: {
-      x: 0,
-      opacity: 1,
-    },
-  };
-
   return (
     <motion.div
       ref={ref}

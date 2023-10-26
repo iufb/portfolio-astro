@@ -58,8 +58,8 @@ html {
 @layer base {
   :root {
     /* light mode defaults */
-    --color-text: #05051a;
-    --color-background: #eeeefc;
+    --color-text-light: #05051a;
+    --color-background-light: #eeeefc;
     --color-primary-light: #e46cac;
     --color-accent-light: #25cb72;
     --color-scroll-light: rgb(75 85 99);
@@ -70,13 +70,6 @@ html {
     --color-primary-dark: #931b5b;
     --color-accent-dark: #34da82;
     --color-scroll-dark: rgb(107 114 128);
-
-    --color-text: var(--color-text-light);
-    --color-background: var(--color-background-light);
-    --color-primary: var(--color-primary-light);
-    --color-accent: var(--color-accent-light);
-    --color-scroll: var(--color-scroll-light);
-    color-scheme: light;
   }
 
   :root[data-theme="dark"] {

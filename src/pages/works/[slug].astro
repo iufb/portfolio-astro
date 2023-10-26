@@ -26,10 +26,10 @@ const { Content } = await work.render();
 ---
 
 <Layout title={work.data.title}>
-  <div class="flex-col pt-20 relative grid">
+  <div class="flex-col relative grid">
     <a
       href="/#works"
-      transition:name="link"
+      transition:name={`link ${work.data.title}`}
       class="px-2 py-1 border-text border hover:text-primary center mb-2 w-full max-w-[50px] justify-self-start gap-3 font-bold"
     >
       <AiOutlineRollback size={21} />
