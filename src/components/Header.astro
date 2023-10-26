@@ -4,14 +4,19 @@ import { ThemeToggle } from "./ThemeToggle.tsx";
 import { BsCodeSlash } from "react-icons/bs";
 import { GiSkills } from "react-icons/gi";
 import { MotionHeader } from "./motion/MotionHeader";
+import { Image } from "astro:assets";
 ---
 
 <MotionHeader client:visible>
-  <a href="/">Logo</a>
+  <a href="/" class="text-white font-bold font-lato">@iufb.</a>
   <div class="flex gap-2 font-normal">
     <a href="/#skills" class="navlink"><GiSkills />Skills</a>
     <a href="/#works" class="navlink"><BsCodeSlash />Works</a>
-    <a href="" class="navlink"><AiOutlineGithub />Source</a>
+    <a
+      href="https://github.com/iufb/portfolio-astro"
+      target="_blank"
+      class="navlink"><AiOutlineGithub />Source</a
+    >
     <ThemeToggle client:load />
   </div>
 </MotionHeader>
