@@ -1,10 +1,9 @@
 ---
-import { AiOutlineGithub } from "react-icons/ai";
+import { IoLogoGithub } from "react-icons/io";
 import { ThemeToggle } from "./ThemeToggle.tsx";
 import { BsCodeSlash } from "react-icons/bs";
 import { GiSkills } from "react-icons/gi";
 import { MotionHeader } from "./motion/MotionHeader";
-import { Image } from "astro:assets";
 ---
 
 <MotionHeader client:visible>
@@ -15,7 +14,7 @@ import { Image } from "astro:assets";
     <a
       href="https://github.com/iufb/portfolio-astro"
       target="_blank"
-      class="navlink"><AiOutlineGithub />Source</a
+      class="navlink"><IoLogoGithub />Source</a
     >
     <ThemeToggle client:load />
   </div>
