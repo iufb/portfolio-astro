@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import { Icon } from "astro-icon";
 export interface Work {
   title: string;
   image: string;
@@ -19,10 +19,10 @@ const { works } = Astro.props;
 >
   <div class="z-40 text-gray-500 flex gap-10 w-fit justify-self-center">
     <button type="button" title="back" class="back">
-      <BsChevronCompactLeft size={30} />
+      <Icon pack="ic" name="sharp-arrow-back" size={30} />
     </button>
     <button type="button" title="next" class="next">
-      <BsChevronCompactRight size={30} />
+      <Icon pack="ic" name="sharp-arrow-forward" size={30} />
     </button>
   </div>
 

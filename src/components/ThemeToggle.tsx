@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BsSunFill, BsMoonFill } from "react-icons/bs";
+import { Icon } from "astro-icon";
 import { AnimatePresence, motion } from "framer-motion";
 export const ThemeToggle = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -65,7 +65,7 @@ export const ThemeToggle = () => {
           exit="hidden"
         >
           <AnimatePresence>
-            <BsSunFill />
+            <Icon pack="bi" name="sun-fill" />
           </AnimatePresence>
         </motion.div>
       )}
@@ -77,7 +77,7 @@ export const ThemeToggle = () => {
           exit="hidden"
         >
           <AnimatePresence>
-            <BsMoonFill />
+            <Icon pack="bi" name="moon-fill" />
           </AnimatePresence>
         </motion.div>
       )}

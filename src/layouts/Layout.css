@@ -26,7 +26,7 @@ html {
     @apply bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text;
   }
   .navlink {
-    @apply text-text hover:text-primary;
+    @apply text-text hover:text-accent;
   }
   .title {
     @apply z-40 text-2xl lg:text-4xl font-bold cursor-pointer  font-lato text-accent mb-2 relative after:absolute after:sm:w-[400px] after:w-[200px] after:bottom-3 after:ml-2 after:h-[1px] after:bg-accent;

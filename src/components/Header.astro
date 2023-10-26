@@ -1,20 +1,22 @@
 ---
-import { IoLogoGithub } from "react-icons/io";
 import { ThemeToggle } from "./ThemeToggle.tsx";
-import { BsCodeSlash } from "react-icons/bs";
-import { GiSkills } from "react-icons/gi";
 import { MotionHeader } from "./motion/MotionHeader";
+import { Icon } from "astro-icon";
 ---
 
 <MotionHeader client:visible>
   <a href="/" class="text-white font-bold font-lato">@iufb.</a>
   <div class="flex gap-2 font-normal">
-    <a href="/#skills" class="navlink"><GiSkills />Skills</a>
-    <a href="/#works" class="navlink"><BsCodeSlash />Works</a>
+    <a href="/#skills" class="navlink"
+      ><Icon pack="cib" name="skillshare" size={20} />Skills</a
+    >
+    <a href="/#works" class="navlink"
+      ><Icon pack="ic" name="sharp-work" size={20} />Works</a
+    >
     <a
       href="https://github.com/iufb/portfolio-astro"
       target="_blank"
-      class="navlink"><IoLogoGithub />Source</a
+      class="navlink"><Icon pack="mdi" name="github" size={20} />Source</a
     >
     <ThemeToggle client:load />
   </div>

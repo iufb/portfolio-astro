@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import { AiOutlineRollback } from "react-icons/ai";
+import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 export const getStaticPaths = async () => {
@@ -32,7 +32,7 @@ const { Content } = await work.render();
       transition:name={`link ${work.data.title}`}
       class="px-2 py-1 border-text border hover:text-primary center mb-2 w-full max-w-[50px] justify-self-start gap-3 font-bold"
     >
-      <AiOutlineRollback size={21} />
+      <Icon pack="ic" name="sharp-arrow-back" size={21} />
     </a>
     <div class="justify-self-center">
       <h2
